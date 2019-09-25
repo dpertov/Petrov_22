@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script src="three.js"></script>
+    <canvas id="canvas" width="800" height="400"></canvas>
+	<script>
+		
+		let canvas = document.getElementById('canvas');
+        let ctx = canvas.getContext('2d');
+        ctx.fillStyle = "Black";
+        ctx.lineWidth = 4;
+		
+        var drawCircle = function (xStart, yStart, radius, fill) {
+            ctx.beginPath();
+            ctx.arc(xStart, yStart, radius, 0, 2 * Math.PI, false);
+            if (fill) {
+                ctx.fill();
+            } 
+            else {
+                ctx.stroke();
+            }
+        };
+
+        var Snowman = function (x, y) {
+             
+            drawCircle(x + 100, y + 240, 70, false);
+            drawCircle(x + 100, y + 120, 50, false);
+            drawCircle(x + 100, y + 40, 30, false);
+           
+            drawCircle(x + 100,  y + 55, 5, true);
+            drawCircle(x + 102,  y + 53, 5, true);
+            drawCircle(x + 98,  y + 53, 5, true);
+            drawCircle(x + 97,  y + 52, 5, true);
+            drawCircle(x + 103,  y + 52, 5, true);
+            drawCircle(x + 85,  y + 35, 5, true);
+            drawCircle(x + 115, y + 35, 5, true);
+            drawCircle(x + 100, y + 90, 5, true);
+            drawCircle(x + 100, y + 120, 5, true);
+            drawCircle(x + 100, y + 150, 5, true);
+            drawCircle(x + 100, y + 200, 5, true);
+            drawCircle(x + 100, y + 230, 5, true);
+        };
+         
+        Snowman(0, 0);
+
+
+
+        drawLine = function (arr) {
+            ctx.strokeStyle = 'blue'
+            ctx.lineWidth = 5;
+            ctx.beginPath();
+            for (let i = 0; i < arr.length; i++) {
+                ctx.lineTo(200+arr[i][0],arr[i][1]);
+            } 
+            ctx.stroke();
+        }
+
+        var points = [
+            [50, 50],
+            [50, 100],
+            [100, 100],
+            [100, 50],
+            [47, 50]
+        ];
+       
+        drawLine(points); 
+
+       
+	</script>
+
+</body>
+</html>
